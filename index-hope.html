@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SVG test</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" type="text/css">
+    <link rel="stylesheet" href="styles/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <p>Red is the default - cyan is the complex rule.</p>
+    <h4>IMG</h4>
+    <div class="parent-3">
+      <div class="child"> <img src="images/svg-a.svg"></div>
+      <!--.child img(src="images/svg-b.svg")
+      -->
+      <!--.child img(src="images/svg-c.svg")
+      -->
+      <!--.child img(src="images/svg-d.svg")
+      -->
+      <!--.child img(src="images/svg-e.svg")
+      -->
+      <!--.child img(src="images/svg-f.svg")
+      -->
+    </div>
+    <h4>OBJECT</h4>
+    <div class="parent-3"> 
+      <div class="child"> 
+        <object data="images/svg-a.svg" type="image/svg+xml"><img src="images/svg-a.svg"></object>
+      </div>
+      <!--.child 
+      object(data='images/svg-b.svg', type='image/svg+xml')
+          img(src='images/svg-b.svg')
+      -->
+      <!--.child 
+      object(data='images/svg-c.svg', type='image/svg+xml')
+          img(src='images/svg-c.svg')
+      -->
+      <!--.child 
+      object(data='images/svg-d.svg', type='image/svg+xml')
+          img(src='images/svg-d.svg')
+      -->
+      <!--.child 
+      object(data='images/svg-e.svg', type='image/svg+xml')
+          img(src='images/svg-e.svg')
+      -->
+      <!--.child 
+      object(data='images/svg-f.svg', type='image/svg+xml')
+          img(src='images/svg-f.svg')
+      -->
+    </div>
+    <h4>inline</h4>
+    <div class="parent-3"> 
+      <div class="child"> 
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 51 80">
+          <style>
+            @import "https://cdn.statically.io/gist/alexmwalker/c000b68c469ccc34706d5043403b1db1/raw/440d576a5779b755d483df90a9fbd5470a63df8c/i.css";
+            
+            path,
+            ellipse,
+            rect {fill: green}
+            a:hover{ outline: 1px red dashed}
+            text{
+              fill: #000;
+              font-size: 5px;
+              font-family: sans-serif;
+            }
+            #svga .red {
+              fill: red; /* The default: red */
+            }
+            #interactive{
+              stroke-width: 0;
+              transform: translateX(-50px);
+            
+            }
+            .firefox{
+              fill: blue;
+              stroke-width: 0;
+              font-size: 10px;
+            }
+            
+            @-moz-document url-prefix() {
+              .firefox{
+                fill: orange;
+              }
+            }
+            a#svga:link #interactive {
+              fill: cyan;
+            }
+            a#svga:link .red {
+              fill: cyan;
+            }
+          </style><a href="#0" id="svga">
+            <g class="hand" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+              <rect width="9.5" height="20.7" rx="4.7" transform="rotate(-26 80.882 11.47)"></rect>
+              <ellipse cx="14.8" cy="14.3" rx="8.8" ry="8.3"></ellipse>
+              <path class="red" d="M10 14.7c0-2.6 2.2-4.7 4.8-4.7 2.6 0 4.8 2.1 4.8 4.7v21.2V31c0-2.6 2.1-4.7 4.7-4.7s4.8 2.1 4.8 4.7V31.2c0-1.3 2.3-4.2 4.7-4.2 2.6 0 4.8 2.1 4.8 4.7v2c.3-2.3 2.3-4.1 4.7-4.1 2.6 0 4.8 2.1 4.8 4.7v11.6c0 10.4-8.5 18.9-19 18.9S10 56.3 10 45.9V14.7z"></path>
+              <text id="interactive">
+                <tspan x="12" y="20.5">INTERACTIVE</tspan>
+              </text>
+              <text class="style" font-size="30px">
+                <tspan class="firefox" x="12" y="30.5">Firefox </tspan>
+              </text>
+            </g>
+            <text x="5" y="75">a#svga:link .red {..}    </text></a>
+        </svg>
+      </div>
+      <!--.child include pug/svg-b.pug
+      -->
+      <!--.child include pug/svg-c.pug
+      -->
+      <!--.child include pug/svg-d.pug
+      -->
+      <!--.child include pug/svg-e.pug
+      -->
+      <!--.child include pug/svg-f.pug
+      -->
+    </div>
+  </body>
+</html>

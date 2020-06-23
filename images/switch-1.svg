@@ -1,0 +1,27 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 150">
+  <style>
+    text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+    #svg-test-1 #tick rect{fill: none;}
+    #svg-test-1 #cross rect{fill: red;}
+    
+    #svg-test-1:link #tick rect{fill: greenyellow;}
+    #svg-test-1:link #cross rect{fill: none;}
+    
+  </style><a id="svg-test-1" href="#0">
+    <rect width="150" height="150" fill="#4BDBEF"></rect>
+    <text id="interactive">
+      <tspan x="12" y="40.5">INTERACTIVE</tspan>
+    </text>
+    <text id="offscreen">
+      <tspan x="148" y="57.5">OFFSCREEN</tspan>
+    </text>
+    <g id="cross">
+      <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+      <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+    </g>
+    <g id="tick">
+      <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+      <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+    </g></a>
+</svg>

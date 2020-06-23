@@ -1,0 +1,32 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /*grid-template-rows: repeat(5, 1fr);*/
+  grid-column-gap: 4rem;
+  grid-row-gap: 0px;
+  outline: 1px greenyellow dashed;
+  margin: 0 auto;
+}
+
+.parent-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*grid-template-rows: repeat(5, 1fr);*/
+  grid-column-gap: 4rem;
+  grid-row-gap: 0px;
+  outline: 1px greenyellow dashed;
+  margin: 0 auto;
+}
+
+.child {
+  outline: 1px red dashed;
+  position: relative;
+}
+
+svg, img, object {
+  width: 100%;
+}
+
+.holder {
+  width: 500px;
+}

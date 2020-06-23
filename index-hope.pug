@@ -1,0 +1,58 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    title SVG test
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Roboto', type='text/css')
+    link(rel='stylesheet', href='styles/css/styles.css', type='text/css')
+  body
+    p Red is the default - cyan is the complex rule.
+    h4 IMG
+    .parent-3
+        .child 
+            img(src="images/svg-a.svg")
+        //.child 
+            img(src="images/svg-b.svg")
+        //.child 
+            img(src="images/svg-c.svg")
+        //.child 
+            img(src="images/svg-d.svg")
+        //.child 
+            img(src="images/svg-e.svg")
+        //.child 
+            img(src="images/svg-f.svg")
+    h4 OBJECT
+    .parent-3 
+        .child 
+            object(data='images/svg-a.svg', type='image/svg+xml')
+                img(src='images/svg-a.svg')
+        //.child 
+            object(data='images/svg-b.svg', type='image/svg+xml')
+                img(src='images/svg-b.svg')
+        //.child 
+            object(data='images/svg-c.svg', type='image/svg+xml')
+                img(src='images/svg-c.svg')
+        //.child 
+            object(data='images/svg-d.svg', type='image/svg+xml')
+                img(src='images/svg-d.svg')
+        //.child 
+            object(data='images/svg-e.svg', type='image/svg+xml')
+                img(src='images/svg-e.svg')
+        //.child 
+            object(data='images/svg-f.svg', type='image/svg+xml')
+                img(src='images/svg-f.svg')
+    h4 inline
+    .parent-3 
+        .child 
+            include pug/svg-a.pug
+        //.child 
+            include pug/svg-b.pug
+        //.child 
+            include pug/svg-c.pug
+        //.child 
+            include pug/svg-d.pug
+        //.child 
+            include pug/svg-e.pug
+        //.child 
+            include pug/svg-f.pug

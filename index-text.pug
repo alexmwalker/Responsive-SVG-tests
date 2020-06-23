@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    title SVG test
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Roboto', type='text/css')
+    link(rel='stylesheet', href='styles/css/styles.css', type='text/css')
+  body
+    p 
+    .holder
+        h4 IMG
+        img(src="images/text-terms-interactive.svg")
+    .holder   
+        h4 OBJECT 
+        object(data='images/text-terms-interactive.svg', type='image/svg+xml')
+            img(src='images/text-terms-interactive.svg')
+    .holder
+        h4 inline 
+        include pug/text-terms-interactive.pug

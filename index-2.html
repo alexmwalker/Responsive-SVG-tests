@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SVG test</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto" type="text/css">
+    <style>
+      body{
+          font-family: Roboto, sans-serif;
+          padding-top: 2rem;
+      }
+      h3{width: 50%; float: left}
+      p {text-align: right; margin-right: 3rem; font-weight: 300; border-bottom: 2px #999 solid;}
+      .parent {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          grid-column-gap: 1rem;
+          grid-row-gap: 0px;
+          outline: 1px greenyellow dashed;
+          width: 100%;
+          margin: 0 auto;
+      }
+      .child{
+          outline: 1px red dashed;
+          position: relative;
+      }
+      svg, img, object{
+          width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>IMG  <code>&lt;img src="switch.svg" /&gt; </code></h3>
+    <p>We want this to show a red X</p>
+    <div class="parent">
+      <div class="child">1<img src="images/switch-1.svg"><code>#svg-test-1:link #tick rect{..}</code></div>
+      <div class="child">2<img src="images/switch-2.svg"><code>:root>#svg-test-2 #tick rect</code></div>
+      <div class="child">3<img src="images/switch-3.svg"><code>:scope>#svg-test-3:link{..}</code></div>
+      <div class="child">4<img src="images/switch-4.svg"><code>#svg-test-4:any-link{..}</code></div>
+      <div class="child">5<img src="images/switch-5.svg"><code>:root#home #svg-test-5>rect{..}</code></div>
+      <div class="child">6<img src="images/switch-6.svg"><code>:root #svg-test-6[href]>rect{..}</code></div>
+    </div>
+    <h3>OBJECT  -  <code>&lt;object data="switch.svg" /&gt;</code></h3>
+    <p>We want this to show a green ✔️</p>
+    <div class="parent"> 
+      <div class="child">1
+        <object data="images/switch-1.svg" type="image/svg+xml"><img src="images/switch-1.svg"></object>
+      </div>
+      <div class="child">2
+        <object data="images/switch-2.svg" type="image/svg+xml"><img src="images/switch-2.svg"></object>
+      </div>
+      <div class="child">3
+        <object data="images/switch-3.svg" type="image/svg+xml"><img src="images/switch-3.svg"></object>
+      </div>
+      <div class="child">4
+        <object data="images/switch-4.svg" type="image/svg+xml"><img src="images/switch-4.svg"></object>
+      </div>
+      <div class="child">5
+        <object data="images/switch-5.svg" type="image/svg+xml"><img src="images/switch-5.svg"></object>
+      </div>
+      <div class="child">6
+        <object data="images/switch-6.svg" type="image/svg+xml"><img src="images/switch-6.svg"></object>
+      </div>
+    </div>
+    <h3>Inline - <code>&lt;svg&gt; ...  &lt;/svg&gt;</code></h3>
+    <p>We want this to show a green ✔️</p>
+    <div class="parent"> 
+      <div class="child">1
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 150">
+          <style>
+            text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+            #svg-test-1 #tick rect{fill: none;}
+            #svg-test-1 #cross rect{fill: red;}
+            
+            #svg-test-1:link #tick rect{fill: greenyellow;}
+            #svg-test-1:link #cross rect{fill: none;}
+            
+          </style><a id="svg-test-1" href="#0">
+            <rect width="150" height="150" fill="#4BDBEF"></rect>
+            <text id="interactive">
+              <tspan x="12" y="40.5">INTERACTIVE</tspan>
+            </text>
+            <text id="offscreen">
+              <tspan x="148" y="57.5">OFFSCREEN</tspan>
+            </text>
+            <g id="cross">
+              <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+              <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+            </g>
+            <g id="tick">
+              <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+              <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+            </g></a>
+        </svg>
+      </div>
+      <div class="child">2
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 150">
+          <style>
+            text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+            #svg-test-2 #tick rect{fill: none;}
+            #svg-test-2 #cross rect{fill: red;}
+            
+            :root>#svg-test-2 #tick rect{fill: greenyellow;}
+            :root>#svg-test-2 #cross rect{fill: none;}
+            :root svg{outline: 4px orange dashed;}
+            .interactive #offscreen{transform: translatex(-48px)}
+          </style>
+          <script>
+            //<![CDATA[
+            
+            var el = document.querySelector('#svg-test-2');
+            function interactiveTest(){
+              if (!hasClass(el, 'interactive')) addClass(el, 'interactive'); 
+            }
+            interactiveTest(); 
+            //]]>
+            
+          </script><a id="svg-test-2" href="#0">
+            <rect width="150" height="150" fill="#4BDBEF"></rect>
+            <text id="interactive">
+              <tspan x="12" y="40.5">INTERACTIVE</tspan>
+            </text>
+            <text id="offscreen">
+              <tspan x="148" y="57.5">OFFSCREEN</tspan>
+            </text>
+            <g id="cross">
+              <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+              <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+            </g>
+            <g id="tick">
+              <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+              <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+            </g></a>
+        </svg>
+      </div>
+      <div class="child">3
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 150">
+          <style>
+            text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+            #svg-test-3 #tick rect{fill: none;}
+            #svg-test-3 #cross rect{fill: red;}
+            
+            :scope>#svg-test-3:link #tick rect{fill: greenyellow;}
+            :scope>#svg-test-3:link #cross rect{fill: none;}
+            :scope svg{outline: 4px orange dashed;}
+            
+          </style><a id="svg-test-3" href="#0">
+            <rect width="150" height="150" fill="#4BDBEF"></rect>
+            <text id="interactive">
+              <tspan x="12" y="40.5">INTERACTIVE</tspan>
+            </text>
+            <text id="offscreen">
+              <tspan x="148" y="57.5">OFFSCREEN</tspan>
+            </text>
+            <g id="cross">
+              <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+              <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+            </g>
+            <g id="tick">
+              <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+              <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+            </g></a>
+        </svg>
+      </div>
+      <div class="child">4
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 150">
+          <style>
+            text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+            #svg-test-4 #tick rect{fill: none;}
+            #svg-test-4 #cross rect{fill: red;}
+            
+            #svg-test-4:any-link #tick rect{fill: greenyellow;}
+            #svg-test-4:any-link #cross rect{fill: none;}
+            foreignobject ~ text{fill: red;}
+            
+          </style><a id="svg-test-4" href="#0">
+            <rect width="150" height="150" fill="#4BDBEF"></rect>
+            <foreignobject x="20" y="20" width="130" height="130">
+              <div xmlns="http://www.w3.org/1999/xhtml">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </foreignobject>
+            <text id="interactive">
+              <tspan x="12" y="40.5">INTERACTIVE</tspan>
+            </text>
+            <text id="offscreen">
+              <tspan x="148" y="57.5">OFFSCREEN</tspan>
+            </text>
+            <g id="cross">
+              <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+              <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+            </g>
+            <g id="tick">
+              <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+              <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+            </g></a>
+        </svg>
+      </div>
+      <div class="child">5
+        <svg xmlns="http://www.w3.org/2000/svg" id="home" fill="none" viewBox="0 0 150 150">
+          <style>
+            text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+             #svg-test-5 #tick rect{fill: none;}
+             #svg-test-5 #cross rect{fill: red;}
+            
+             :root #svg-test-5:link #tick rect{fill: greenyellow;}
+             :root #svg-test-5:link #cross rect{fill: none;}
+             :root#home #svg-test-5>rect{ fill: purple }
+            
+          </style><a id="svg-test-5" href="#0">
+            <rect width="150" height="150" fill="#4BDBEF"></rect>
+            <text id="interactive">
+              <tspan x="12" y="40.5">INTERACTIVE</tspan>
+            </text>
+            <text id="offscreen">
+              <tspan x="148" y="57.5">OFFSCREEN</tspan>
+            </text>
+            <g id="cross">
+              <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+              <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+            </g>
+            <g id="tick">
+              <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+              <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+            </g></a>
+        </svg>
+      </div>
+      <div class="child">6
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 150">
+          <style>
+            text{font-family: Roboto, sans-serif; font-size: 19px; fill: #333}
+            #svg-test-6 #tick rect{fill: none;}
+            #svg-test-6 #cross rect{fill: red;}
+            
+            /*#svg-test-6:link #tick rect{fill: greenyellow;}
+            #svg-test-6:link #cross rect{fill: none;}*/
+            :root #svg-test-6[href]>rect{
+              fill:red;
+            }
+            
+            
+          </style><a id="svg-test-6" href="#0">
+            <rect width="150" height="150" fill="#4BDBEF"></rect>
+            <text id="interactive">
+              <tspan x="12" y="40.5">INTERACTIVE</tspan>
+            </text>
+            <text id="offscreen">
+              <tspan x="148" y="57.5">OFFSCREEN</tspan>
+            </text>
+            <g id="cross">
+              <rect x="50.4" y="57" width="62" height="9" transform="rotate(45 50.4 57)"></rect>
+              <rect x="94.2" y="63.4" width="62" height="9" transform="rotate(135 94.2 63.4)"></rect>
+            </g>
+            <g id="tick">
+              <rect x="48" y="83" width="26" height="9" transform="rotate(45 48 83)"></rect>
+              <rect x="100" y="68" width="55" height="9" transform="rotate(135 100 68)"></rect>
+            </g></a>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

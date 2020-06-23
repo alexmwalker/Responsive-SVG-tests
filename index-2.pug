@@ -1,0 +1,92 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    title SVG test
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Roboto', type='text/css')
+    style.
+        body{
+            font-family: Roboto, sans-serif;
+            padding-top: 2rem;
+        }
+        h3{width: 50%; float: left}
+        p {text-align: right; margin-right: 3rem; font-weight: 300; border-bottom: 2px #999 solid;}
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-column-gap: 1rem;
+            grid-row-gap: 0px;
+            outline: 1px greenyellow dashed;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .child{
+            outline: 1px red dashed;
+            position: relative;
+        }
+        svg, img, object{
+            width: 100%;
+        }
+  body
+    
+    h3 IMG  
+        code &lt;img src="switch.svg" /&gt; 
+    p We want this to show a red X
+    .parent
+        .child 1
+            img(src="images/switch-1.svg")
+            code #svg-test-1:link #tick rect{..}
+        .child 2
+            img(src="images/switch-2.svg")
+            code :root>#svg-test-2 #tick rect
+        .child 3
+            img(src="images/switch-3.svg")
+            code :scope>#svg-test-3:link{..}
+        .child 4
+            img(src="images/switch-4.svg")
+            code #svg-test-4:any-link{..}
+        .child 5
+            img(src="images/switch-5.svg")
+            code :root#home #svg-test-5>rect{..}
+        .child 6
+            img(src="images/switch-6.svg")
+            code :root #svg-test-6[href]>rect{..}
+    h3 OBJECT  -  
+        code &lt;object data="switch.svg" /&gt;
+    p We want this to show a green ✔️
+    .parent 
+        .child 1
+            object(data='images/switch-1.svg', type='image/svg+xml')
+                img(src='images/switch-1.svg')
+        .child 2
+            object(data='images/switch-2.svg', type='image/svg+xml')
+                img(src='images/switch-2.svg')
+        .child 3
+            object(data='images/switch-3.svg', type='image/svg+xml')
+                img(src='images/switch-3.svg')
+        .child 4
+            object(data='images/switch-4.svg', type='image/svg+xml')
+                img(src='images/switch-4.svg')
+        .child 5
+            object(data='images/switch-5.svg', type='image/svg+xml')
+                img(src='images/switch-5.svg')
+        .child 6
+            object(data='images/switch-6.svg', type='image/svg+xml')
+                img(src='images/switch-6.svg')
+    h3 Inline - 
+        code &lt;svg&gt; ...  &lt;/svg&gt;
+    p We want this to show a green ✔️
+    .parent 
+        .child 1
+            include pug/switch-1.pug
+        .child 2
+            include pug/switch-2.pug
+        .child 3
+            include pug/switch-3.pug
+        .child 4
+            include pug/switch-4.pug
+        .child 5
+            include pug/switch-5.pug
+        .child 6
+            include pug/switch-6.pug
